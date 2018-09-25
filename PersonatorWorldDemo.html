@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Personator World Demo</title>	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.js"></script>
+    <style>
+        .header img {
+            float: right;
+            width: 188px;
+            height: 80px;
+            background: #555;
+        }
+
+        .header h2 {
+            position: relative;
+            top: 18px;
+            left: 10px;
+        }
+    </style>
+</head>
+<body class="ui container">
+    <p>	
+    <div class="header">
+        <img src="melissa-global-intelligence.jpg" width="188" height="80" alt="logo" />
+        <h2 class="ui header">Personator World Demo</h2>		
+		<br>
+    </div>	
+	<br>
+	<div class="wiki">
+		
+	</div>
+    <div class="main ui container">	
+        <div class="ui top attached tabular menu">
+            <a class="item active" data-tab="tab-name">Input</a>
+			<a class="item" data-tab="tab-name3">Request</a>
+            <a class="item" data-tab="tab-name2">Output</a>
+        </div>
+        <!-- Input tab -->
+        <div class="ui bottom attached tab segment active" data-tab="tab-name">
+            <div class="ui two column stackable grid container">
+                <div class="column">
+				<a href="http://wiki.melissadata.com/index.php?title=Personator_World">Personator World Wiki</a>
+                    <!-- License Key -->
+                    <div class="ui info message">					
+                        <div class="header">
+                            License Key
+                        </div>
+                        Enter here your encrypted and unique license key from Melissa Data. This is necessary for including with each request to the web service. If you do not have a license key, please contact your Melissa Data sales representative at 1-800-MELISSA (1-800-635-4772)
+                    </div>
+                    <div class="ui input right fluid field">
+                        <input type="text" placeholder="License Key..." name="id">
+                    </div>
+                    <!-- Actions -->
+                    <div class="ui info message">                    
+                        <div class="header">
+                            Actions
+                        </div>
+                        <ul class="list">
+                            <li>Check - Determines whether the data within a submitted record is valid, e.g. whether or not a given postal code contains the given city. It can also make limited corrections and appends to the data. Check looks at each data point separately</li>
+                            <li>Verify - After the data has been checked, identity verification is performed and result codes (KV*) are returned to indicate what pieces of input data have been matched against trusted referenced data</li>
+                            <li>Screen - Screens the provided input against various government sanctions and watchlists and returns back a list of matches</li>
+                        </ul>
+                    </div>
+                    <div class="ui two column stackable grid container">
+                        <div class="column">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="action_check"> 
+                                <label>Check</label>
+                            </div>
+                            <br>
+                           <div class="ui checkbox">
+                                <input type="checkbox" name="action_verify"> 
+                                <label>Verify</label>
+                            </div>
+                            <br>
+                        </div>
+                        <div class="column">
+                            <div class="ui checkbox">
+                                <input type="checkbox" name="action_screen">   
+                                <label>Screen</label>
+                            </div>
+                            <br>
+                        </div>
+                    </div>                    
+                    <div class="ui info message">
+                        <div class="header">
+                            Address Options
+                        </div>
+                        <ul class="list">
+                            <li>Delivery Lines - Allows you to specify if the Address Lines 1-8 should contain just the delivery address or the entire address</li>
+                            <li>Line Separator - Determines the line separator used for the FormattedAddress result</li>
+                            <li>Output Script - Determines the script type used for all applicable fields</li>
+                            <li>Country of Origin - uUed to determine whether or not to include the country name as the last line in FormattedAddress field. If blank, invalid, or the same as the destination country, then the destination country is not appended to the end of the formatted address</li>
+                        </ul>
+                    </div>
+                    <div class="ui two column stackable grid container">
+                        <div class="column">
+                            <div class="ui selection dropdown fluid">
+                                <input type="hidden" name="optAddress_deliveryLines">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Delivery Lines</div>
+                                <div class="menu">
+                                    <div class="item" data-value="Off">Off</div>
+                                    <div class="item" data-value="On">On</div>
+                                </div>
+                            </div>
+                            <div class="ui selection dropdown fluid">
+                                <input type="hidden" name="optAddress_outputScript">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Output Script</div>
+                                <div class="menu">
+                                    <div class="item" data-value="NOCHANGE">No Change</div>
+                                    <div class="item" data-value="LATIN">Latin</div>
+                                    <div class="item" data-value="NATIVE">Native</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="ui selection dropdown fluid">
+                                <input type="hidden" name="optAddress_lineSeparator">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Line Separator</div>
+                                <div class="menu">
+                                    <div class="item" data-value="SEMICOLON">SEMICOLON</div>
+                                    <div class="item" data-value="PIPE">PIPE</div>
+                                    <div class="item" data-value="CR">CR</div>
+                                    <div class="item" data-value="LF">LF</div>
+                                    <div class="item" data-value="CRLF">CRLF</div>
+                                    <div class="item" data-value="TAB">TAB</div>
+                                    <div class="item" data-value="BR">BR</div>
+                                </div>
+                            </div>
+                            <div class="ui input fluid">
+                                <input type="text" placeholder="Country of Origin" name="optAddress_countryOfOrigin">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+					<h1>Personal Identity Information</h1>
+
+                    <h4>Name</h4>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Full Name..." name="full">
+                    </div>
+
+					<h4>Address</h4>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address1..." name="a1">
+                    </div>
+                    <p>
+					<div class="ui input right fluid">
+                        <input type="text" placeholder="Address2..." name="a2">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address3..." name="a3">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address4..." name="a4">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address5..." name="a5">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address6..." name="a6">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address7..." name="a7">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Address8..." name="a8">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Locality..." name="loc">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Administrative Area..." name="admarea">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Postal Code..." name="postal">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Country..." name="ctry">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Country of Origin..." name="ctryorg">
+                    </div>
+
+                    <h4>Other</h4>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Company Name..." name="comp">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Phone Number..." name="phone">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Email..." name="email">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="Date of Birth..." name="dob">
+                    </div>
+                    <p>
+                    <div class="ui input right fluid">
+                        <input type="text" placeholder="National ID (i.e. in the US the SSN)..." name="nat">
+                    </div>
+                    <br>
+                    <br>
+                    <button class="ui icon button normal" onclick="doClear()">
+                        <i class="erase icon"></i>
+                        Clear
+                    </button>
+                    <button class="ui icon button positive" onclick="doVerify()">
+                        <i class="thumbs up icon"></i>
+                        Send Request
+                    </button>
+                </div>
+            </div>
+        </div>
+
+		<!-- REST tab -->
+        <div class="ui bottom attached tab segment" data-tab="tab-name3">
+            <pre name="restOutput">
+                Run a record through first
+            </pre>
+        </div>
+		
+        <!-- Output tab -->
+        <div class="ui bottom attached tab segment" data-tab="tab-name2">
+            <pre name="jsonOutput">
+                Run a record through first
+            </pre>
+        </div>
+        <p><br>
+    </div>
+
+    <script>
+        $('.menu .item').tab();
+        $('.ui.dropdown').dropdown();
+
+        function getActions() {
+            var actions = "";
+            if ($('input[name=action_check]').is(':checked')) actions += "Check,";
+            if ($('input[name=action_verify]').is(':checked')) actions += "Verify,";
+            if ($('input[name=action_screen]').is(':checked')) actions += "Screen,";
+            return actions;
+        }
+
+        function getAddressOpt() {
+            var opt = "";
+            if ($('input[name=optAddress_deliveryLines]').val() != "") opt += "DeliveryLines:" + $('input[name=optAddress_deliveryLines]').val() + ",";
+            if ($('input[name=optAddress_lineSeparator]').val() != "") opt += "LineSeparator:" + $('input[name=optAddress_lineSeparator]').val() + ","; 
+            if ($('input[name=optAddress_outputScript]').val() != "") opt += "OutputScript:" + $('input[name=optAddress_outputScript]').val() + ",";
+            if ($('input[name=optAddress_countryOfOrigin]').val() != "") opt += "CountryOfOrigin:" + $('input[name=optAddress_countryOfOrigin]').val() + ",";            
+            return opt;
+        }
+
+		function getUserInput() {
+			var userInput = "";
+			
+			// name
+            userInput += "&full=" + $('input[name=full]').val();
+
+            // address
+			userInput += "&a1=" + $('input[name=a1]').val();
+			userInput += "&a2=" + $('input[name=a2]').val();
+            userInput += "&a3=" + $('input[name=a3]').val();
+            userInput += "&a4=" + $('input[name=a4]').val();
+            userInput += "&a5=" + $('input[name=a5]').val();
+            userInput += "&a6=" + $('input[name=a6]').val();
+            userInput += "&a7=" + $('input[name=a7]').val();
+            userInput += "&a8=" + $('input[name=a8]').val();
+			userInput += "&loc=" + $('input[name=loc]').val();
+			userInput += "&admarea=" + $('input[name=admarea]').val();
+			userInput += "&postal=" + $('input[name=postal]').val();
+            userInput += "&ctry=" + $('input[name=ctry]').val();
+            userInput += "&ctryOrg=" + $('input[name=ctryOrg]').val();
+
+            // other
+			userInput += "&phone=" + $('input[name=phone]').val();
+			userInput += "&email=" + $('input[name=email]').val();
+			userInput += "&dob=" + $('input[name=dob]').val();
+			userInput += "&comp=" + $('input[name=comp]').val();
+            userInput += "&nat=" + $('input[name=nat]').val();
+
+			return userInput;
+		}
+
+        function doVerify() {
+			var xhttp = new XMLHttpRequest();
+			var url = "https://globalpersonator.melissadata.net/v1/doContactVerify?";
+			url += "&id=" + encodeURIComponent($('input[name=id]').val());
+            url += "&act=" + getActions().replace(/,\s*$/, "");
+			url += "&addrOpt=" + getAddressOpt().replace(/,\s*$/, "");
+			url += getUserInput();
+            url += "&format=JSON";
+			xhttp.open("GET", url, false);
+			xhttp.send();
+			console.log(url);
+			var response = JSON.parse(xhttp.responseText);
+			
+			$('pre[name=restOutput]').text('\n\n' + url + '\n\n\n');
+			$('pre[name=jsonOutput]').text(JSON.stringify(response, null, '\t'));
+			$('.ui.menu').find('.item').tab('change tab', 'tab-name2');
+        }
+
+        function doClear() {
+            $("input").each(function(index) {
+                $(this).val('');
+            })
+        }
+
+    </script>
+</body>
+</html>
